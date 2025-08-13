@@ -1,16 +1,11 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2822
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww29200\viewh18380\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+DSA ASSIGNMENT 
 
-\f0\fs24 \cf0 DSA Assignment\
-Question 2 \'96 Remove Duplicates from an Array\
-\
-#include <iostream>\
-using namespace std;\
-\
+
+Question 2 -- Remove Duplicates from an Array
+
+#include <iostream>
+using namespace std;
+
 void removeDuplicates(int arr[], int &n) \{\
     for (int i = 0; i < n; i++) \{\
         for (int j = i + 1; j < n; j++) \{\
@@ -18,137 +13,136 @@ void removeDuplicates(int arr[], int &n) \{\
                 // Shift elements left to remove duplicate\
                 for (int k = j; k < n - 1; k++) \{\
                     arr[k] = arr[k + 1];\
-                \}\
+                }
                 n--;   
                 j--;   
-            \}\
-        \}\
-    \}\
-\}\
-\
-int main() \{\
-    int arr[100], n;\
-\
-    cout << "Enter number of elements: ";\
-    cin >> n;\
-\
-    cout << "Enter " << n << " elements: ";\
-    for (int i = 0; i < n; i++) \{\
-        cin >> arr[i];\
-    \}\
-\
-    removeDuplicates(arr, n);\
-\
-    cout << "Array after removing duplicates: ";\
-    for (int i = 0; i < n; i++) \{\
-        cout << arr[i] << " ";\
-    \}\
-    cout << endl;\
-\
-    return 0;\
-\}\
-\
-Question 3 \'96 Output Explanation\
-Answer: 10000 // the remaning digits will be 0\
-\
-Question 4 (A) \'96 Reverse a Character Array\
-\
-#include <iostream>\
-using namespace std;\
-\
-void reverseArray(char arr[], int n) \{\
-    char temp;\
-    for (int i = 0; i < n / 2; i++) \{\
-        temp = arr[i];\
-        arr[i] = arr[n - i - 1];\
-        arr[n - i - 1] = temp;\
-    \}\
-\}\
-\
-int main() \{\
-    char arr[100];\
-    int n;\
-\
-    cout << "Enter the total number of characters: ";\
-    cin >> n;\
-\
-    cout << "Enter the characters: ";\
-    for (int i = 0; i < n; i++) \{\
-        cin >> arr[i];\
-    \}\
-\
+            }
+        }
+    }
+}
+
+int main() {
+    int arr[100], n;
+
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    cout << "Enter " << n << " elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    removeDuplicates(arr, n);
+
+    cout << "Array after removing duplicates: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+Question 3  Output Explanation
+Answer: 10000 // the remaning digits will be 0
+
+Question 4 (A)  Reverse a Character Array
+
+#include <iostream>
+using namespace std ;
+
+void reverseArray(char arr[], int n) {
+    char temp;
+    for (int i = 0; i < n / 2; i++) {
+        temp = arr[i];
+        arr[i] = arr[n - i - 1];
+        arr[n - i - 1] = temp;
+    }
+}
+
+int main() {
+    char arr[100];
+    int n;
+
+    cout << "Enter the total number of characters: ";
+    cin >> n;
+
+    cout << "Enter the characters: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
     reverseArray(arr, n);\
-\
-    cout << "Reversed array: ";\
-    for (int i = 0; i < n; i++) \{\
-        cout << arr[i];\
-    \}\
-    cout << endl;\
-\
-    return 0;\
-\}\
-\
+
+    cout << "Reversed array: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i];
+    }
+    cout << endl;
+
+    return 0;
+}
+
 Question 4 (B) \'96 Matrix Multiplication\
-\
-#include <iostream>\
-using namespace std;\
-\
-int main() \{\
-    int r1, c1, r2, c2;\
-\
-    cout << "Enter rows and columns for first matrix: ";\
-    cin >> r1 >> c1;\
-\
-    cout << "Enter rows and columns for second matrix: ";\
-    cin >> r2 >> c2;\
-\
-    if (c1 != r2) \{\
-        cout << "Matrix multiplication not possible!" << endl;\
-        return 0;\
-    \}\
-\
+
+#include <iostream>
+using namespace std;
+int main() {
+    int r1, c1, r2, c2;
+
+    cout << "Enter rows and columns for first matrix: ";
+    cin >> r1 >> c1;
+
+    cout << "Enter rows and columns for second matrix: ";
+    cin >> r2 >> c2;
+
+    if (c1 != r2) {
+        cout << "Matrix multiplication not possible!" << endl;
+        return 0;
+    }
+
     int A[r1][c1], B[r2][c2], C[r1][c2];\
-\
-    cout << "Enter elements of the first matrix:" << endl;\
-    for (int i = 0; i < r1; i++) \{\
-        for (int j = 0; j < c1; j++) \{\
-            cin >> A[i][j];\
-        \}\
-    \}\
-\
-    cout << "Enter elements of the second matrix:" << endl;\
-    for (int i = 0; i < r2; i++) \{\
-        for (int j = 0; j < c2; j++) \{\
-            cin >> B[i][j];\
-        \}\
-    \}\
-\
-    // Initialize C to 0\
-    for (int i = 0; i < r1; i++) \{\
-        for (int j = 0; j < c2; j++) \{\
-            C[i][j] = 0;\
-        \}\
-    \}\
-\
+
+    cout << "Enter elements of the first matrix:" << endl;
+    for (int i = 0; i < r1; i++) {
+        for (int j = 0; j < c1; j++) {
+            cin >> A[i][j];
+        }
+    }
+
+    cout << "Enter elements of the second matrix:" << endl;
+    for (int i = 0; i < r2; i++) {
+        for (int j = 0; j < c2; j++) {
+            cin >> B[i][j];
+        }
+    }
+
+    // Initialize C to 0
+    for (int i = 0; i < r1; i++) {
+        for (int j = 0; j < c2; j++) {
+            C[i][j] = 0;
+        }
+    }
+
     // Matrix multiplication\
-    for (int i = 0; i < r1; i++) \{\
-        for (int j = 0; j < c2; j++) \{\
-            for (int k = 0; k < c1; k++) \{\
-                C[i][j] += A[i][k] * B[k][j];\
-            \}\
-        \}\
-    \}\
-\
-    cout << "Resultant Matrix:" << endl;\
-    for (int i = 0; i < r1; i++) \{\
-        for (int j = 0; j < c2; j++) \{\
-            cout << C[i][j] << " ";\
-        \}\
-        cout << endl;\
-    \}\
-\
+    for (int i = 0; i < r1; i++) {
+        for (int j = 0; j < c2; j++) {
+            for (int k = 0; k < c1; k++) {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+
+    cout << "Resultant Matrix:" << endl;
+    for (int i = 0; i < r1; i++) {
+        for (int j = 0; j < c2; j++) {
+            cout << C[i][j] << " ";
+        }
+        cout << endl;
+    }
+
     return 0;\
-\}\
+}
 }
 
 
